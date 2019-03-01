@@ -26,36 +26,3 @@ Relating XGBoost Explainer and LIME, SHAP claims to be "the best" method to expl
 Last but not least, there are some methods to map predictions to training set samples. This is great! We not only know why the model is predicting something, but we know which samples in the training set are influencing this decision. So we can clean the training set if something goes wrong. A brute-force example of this method can be found in *6-leave-one-out-retraining*.
 
 And that's it!! I recommend reading the great [Interpretable Machine Learning Book](https://christophm.github.io/interpretable-ml-book/), which is updated every week with new methods and resources.
-
-
-# Docker images
-
-I have prepared a docker image so that you are able to execute all the notebooks without the dependency problem. You can build the image using the included docker file.
-
-In order to build the image:
-```
-sudo docker build --tag interpretability:v0 .   
-```
-
-
-To execute the Python version (Jupyter & Co):
-
-```
-sudo docker run --net="host" -v /home/josearcos/workshop-interpretability/:/usr/local/notebooks interpretability:v0
-```
-
-To execute the R version (RStudio Server with every package you will need):
-
-``` 
-sudo docker run --net="host" -v /home/josearcos/workshop-interpretability/:/home/rstudio/notebooks interpretability:v0 /init
-```
-
-When running the container, remember to share the folder containing all the notebooks (in the example, my path was */home/josearcos/workshop-interpretability/*).
-
-To connect to RStudio Server, just go to:   
-http://localhost:8787/   
-And enter with:   
-user = rstudio   
-pass = rstudio  
-
-To connect to Jupyter notebook, just follow the URL shown in the console.
